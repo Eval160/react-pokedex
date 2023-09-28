@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState } from "react"
+import { useEffect } from "react"
 import PokemonCard from "./components/PokemonCard"
 import NavBar from "./components/NavBar"
 import "./App.css";
@@ -33,6 +34,12 @@ function App() {
   const [pokemonIndex, setPokemonIndex] = useState(0)
   const pokemon = pokemonList[pokemonIndex]
 
+  useEffect(
+    () => {
+      console.log("hello pokemon trainer :)");
+    },
+    []
+  );
   // const decrementPokemonIndex = () => {
   //   if (pokemonIndex === 0) return
   //   setPokemonIndex(pokemonIndex - 1)
@@ -48,6 +55,9 @@ function App() {
 
   const handlePokemonSelector = (index) => {
     console.log(index);
+    if (pokemonList[index].name === "pikachu") {
+      console.log("pika pikachu !!!");
+    }
     setPokemonIndex(index)
   }
 
