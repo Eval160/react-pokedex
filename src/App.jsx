@@ -33,26 +33,29 @@ function App() {
   const [pokemonIndex, setPokemonIndex] = useState(0)
   const pokemon = pokemonList[pokemonIndex]
 
-  const decrementPokemonIndex = () => {
-    if (pokemonIndex === 0) return
-    setPokemonIndex(pokemonIndex - 1)
-    console.log(pokemonIndex);
-  }
+  // const decrementPokemonIndex = () => {
+  //   if (pokemonIndex === 0) return
+  //   setPokemonIndex(pokemonIndex - 1)
+  //   console.log(pokemonIndex);
+  // }
 
-  const incrementPokemonIndex = () => {
-    if (pokemonIndex >= pokemonList.length -1) return
+  // const incrementPokemonIndex = () => {
+  //   if (pokemonIndex >= pokemonList.length -1) return
 
-    setPokemonIndex(pokemonIndex + 1)
-    console.log(pokemonIndex);
+  //   setPokemonIndex(pokemonIndex + 1)
+  //   console.log(pokemonIndex);
+  // }
+
+  const handlePokemonSelector = (index) => {
+    console.log(index);
+    setPokemonIndex(index)
   }
 
   return (
     <div>
+      <NavBar pokemonList={pokemonList}
+              handlePokemonSelector={handlePokemonSelector}/>
       <PokemonCard pokemon={pokemon}/>
-      <NavBar pokemonIndex={pokemonIndex}
-              decrementPokemonIndex={decrementPokemonIndex}
-              incrementPokemonIndex={incrementPokemonIndex}
-              pokemonList={pokemonList}/>
     </div>
   );
 }
